@@ -1,0 +1,59 @@
+CSC241 - Lab 02
+Compiler Notes
+
+=========================
+Invalid Overload
+=========================
+
+Invalid code tested:
+
+void enroll(String courseCode) {
+System.out.println("Course: " + courseCode);
+}
+
+int enroll(String courseCode) {
+return 1;
+}
+
+Expected result:
+The compiler should reject these methods because they have the same method name and the same parameter list. Their return types are different, but return type alone cannot distinguish overloaded methods.
+
+Actual compiler message:
+Task3OverLoadDemo.java:9: error: method enroll(String) is already defined in class Task3OverloadDemo
+      int enroll(String courseCode )
+
+Conclusion:
+The two methods cannot be overloaded because their parameter lists are identical. Java does not use the return type alone to distinguish overloaded methods.
+
+===================
+OTHER INVALID CALLS
+===================
+
+Invalid call:
+
+enroll();
+
+Reason:
+There is no enroll method with zero parameters.
+
+Actual compiler message:
+Task3OverLoadDemo.java:41: error: no suitable method found for enroll(no arguments)
+        obj.enroll();
+
+Invalid call:
+
+enroll("241", "2");
+
+Reason:
+There is no enroll method that accepts two String parameters.
+
+Actual compiler message:
+Task3OverLoadDemo.java:37: error: incompatible types: String cannot be converted to int
+        obj.enroll("CSC241","2");
+
+
+==========
+FINAL NOTE
+==========
+
+The invalid code was commented out after observing the compiler error so that the final program could compile and run successfully.
