@@ -52,8 +52,3 @@ Task3OverLoadDemo.java:37: error: incompatible types: String cannot be converted
         obj.enroll("CSC241","2");
 
 
-==========
-FINAL NOTE
-==========
-
-The invalid code was commented out after observing the compiler error so that the final program could compile and run successfully.
