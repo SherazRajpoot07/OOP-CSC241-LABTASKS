@@ -1,0 +1,4 @@
+
+C:\bsai--sp26-037\Lab Task 3 (II)\TASK 1>java Demo
+Total before invlaid call=270.0
+Total after invlid call=270.0
