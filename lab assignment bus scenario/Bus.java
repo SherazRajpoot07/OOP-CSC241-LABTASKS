@@ -1,37 +1,55 @@
+
 public class Bus {
+
     private String busNumber;
     private Seat[][] seats;
 
+    // Default constructor
     public Bus() {
-        this("DEFAULT", 2);
+        this("BUS-DEFAULT", 2);
     }
 
+    // Parameterized constructor
     public Bus(String busNumber, int rows) {
         this.busNumber = busNumber;
+
         seats = new Seat[rows][4];
 
-        int seatNumber = 1;
-        for (int row = 0; row < seats.length; row++) {
-            for (int col = 0; col < seats[row].length; col++) {
-                seats[row][col] = new Seat(seatNumber);
-                seatNumber++;
+        int number = 1;
+
+        // Initialize every Seat object
+        for (int i = 0; i < seats.length; i++) {
+            for (int j = 0; j < seats[i].length; j++) {
+                seats[i][j] = new Seat(number);
+                number++;
             }
         }
     }
 
+    // Display all seats
     public void displaySeats() {
-        for (int row = 0; row < seats.length; row++) {
-            System.out.print("Row " + (row + 1) + ": ");
+        for (int i = 0; i < seats.length; i++) {
 
-            for (int col = 0; col < seats[row].length; col++) {
-                Seat seat = seats[row][col];
-                String status = seat.isReserved() ? "X" : "O";
-                System.out.printf("%02d:%s", seat.getSeatNumber(), status);
+            System.out.print("Row " + (i + 1) + ": ");
 
-                // Display the aisle between the two pairs of seats.
-                if (col == 1) {
+            for (int j = 0; j < seats[i].length; j++) {
+
+                Seat s = seats[i][j];
+
+                String status;
+
+                if (s.isReserved()) {
+                    status = "X";
+                } else {
+                    status = "O";
+                }
+
+                System.out.printf("%02d:%s",
+                        s.getSeatNumber(), status);
+
+                if (j == 1) {
                     System.out.print(" || ");
-                } else if (col < seats[row].length - 1) {
+                } else if (j < seats[i].length - 1) {
                     System.out.print(" ");
                 }
             }
@@ -40,36 +58,46 @@ public class Bus {
         }
     }
 
+    
     public void reserveSeat(int seatNumber) {
-        for (int row = 0; row < seats.length; row++) {
-            for (int col = 0; col < seats[row].length; col++) {
-                Seat seat = seats[row][col];
 
-                if (seat.getSeatNumber() == seatNumber) {
-                    if (seat.reserve()) {
-                        System.out.println("Reserving Seat " + seatNumber + ": Successful");
+        for (int i = 0; i < seats.length; i++) {
+            for (int j = 0; j < seats[i].length; j++) {
+
+                if (seats[i][j].getSeatNumber() == seatNumber) {
+
+                    if (seats[i][j].reserve()) {
+                        System.out.println(
+                            "Reserving Seat " + seatNumber
+                            + ": Successful");
                     } else {
-                        System.out.println("Reserving Seat " + seatNumber + ": Already Reserved");
+                        System.out.println(
+                            "Reserving Seat " + seatNumber
+                            + ": Already Reserved");
                     }
+
                     return;
                 }
             }
         }
 
-        System.out.println("Reserving Seat " + seatNumber + ": Invalid Seat Number");
+        System.out.println("Invalid seat number: " + seatNumber);
     }
 
+    // Count available seats
     public int countAvailableSeats() {
-        int available = 0;
 
-        for (int row = 0; row < seats.length; row++) {
-            for (int col = 0; col < seats[row].length; col++) {
-                if (!seats[row][col].isReserved()) {
-                    available++;
+        int count = 0;
+
+        for (int i = 0; i < seats.length; i++) {
+            for (int j = 0; j < seats[i].length; j++) {
+
+                if (!seats[i][j].isReserved()) {
+                    count++;
                 }
             }
         }
 
-        return available;
+        return count;
     }
 }

@@ -6,8 +6,14 @@ public class Main {
 
         Product p1 = new Product("Laptop", 85000, sales);
         Product p2 = new Product("Printer", 110000, sales1);
-
+        
+        System.out.println("Before changing the price....");
+        p1.display();
+        p1.setPrice(90000);
+        System.out.println("After changing the price....");
         p1.display();
         p2.display();
-    }
+         
+    
+}
 }
