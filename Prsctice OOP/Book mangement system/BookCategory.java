@@ -1,0 +1,6 @@
+public enum BookCategory{
+ PROGRAMMING,
+ DATABASE,
+ NETWORKING,
+ MATHEMATICS
+ }
