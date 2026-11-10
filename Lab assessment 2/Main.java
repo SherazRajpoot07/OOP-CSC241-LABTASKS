@@ -7,7 +7,7 @@ public class Main {
 
         FoodItem drink = new FoodItem(
                 102, "Soft Drink", 150,
-                FoodCategory.DRINK);
+                FoodCategory.DRINK);=
 
         FoodItem fries = new FoodItem(
                 103, "French Fries", 250,
