@@ -1,0 +1,38 @@
+LocalDate Methods:
+Important methods of LocalDate
+Method	Purpose
+LocalDate.now()	Gets today's date
+LocalDate.of(y,m,d)	Creates a specific date
+getDayOfMonth()	Gets the day
+getMonth()	Gets the month name
+getYear()	Gets the year
+plusDays(5)	Adds 5 days
+minusDays(5)	Subtracts 5 days
+isBefore(date)	Checks whether a date is earlier
+isAfter(date)	Checks whether a date is later
+isLeapYear()	Checks whether the year is a leap year
+
+2. java.util.Locale
+Locale is a class used to represent a particular language and regional setting.
+
+For example:
+- English (United States)
+- English (United Kingdom)
+- Urdu (Pakistan)
+- French (France)
+
+Important methods of Locale
+Method	Purpose
+Locale.getDefault()	Gets the system's default locale
+getLanguage()	Gets language code
+getCountry()	Gets country code
+getDisplayLanguage()	Gets readable language name
+getDisplayCountry()	Gets readable country name
+
+Local.US, Local.France
+
+Date formatter:
+import java.time.format.DateTimeFormatter;
+
+ DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.US);
