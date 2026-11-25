@@ -36,3 +36,78 @@ import java.time.format.DateTimeFormatter;
 
  DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.US);
+
+Important methods of Object class
+These are the methods you should understand.
+Method	Purpose
+toString()	Returns a string representation of an object
+equals()	Checks whether two objects are equal
+hashCode()	Returns an object's hash code
+getClass()	Returns the runtime class of an object
+clone()	Creates a copy of an object under specific conditio
+wait()	Makes a thread wait
+notify()	Wakes one waiting thread
+notifyAll()	Wakes all waiting threads
+
+
+return id == other.id &&
+       Objects.equals(name, other.name) &&
+       Double.compare(salary, other.salary) == 0 &&
+       permanent == other.permanent &&
+       grade == other.grade;
+----------------------------------
+Wrapper classe:
+All 8 Wrapper Classes
+Every primitive data type has a corresponding wrapper class.
+Primitive	Wrapper Class
+byte	Byte
+short	Short
+int	Integer
+long	Long
+float	Float
+double	Double
+char	Character
+boolean	Boolean
+
+Notice these important differences:
+- int → Integer
+- char → Character
+- boolean → Boolean
+
+Creating Wrapper Class Objects
+There are two important ways to create wrapper objects.
+
+Method 1: Using the valueOf() method:
+code:
+public class Main {
+    public static void main(String[] args) {
+
+        Integer num = Integer.valueOf(100);
+        Double price = Double.valueOf(250.50);
+        Boolean status = Boolean.valueOf(true);
+
+        System.out.println(num);
+        System.out.println(price);
+        System.out.println(status);
+    }
+}
+valueOf() returns a wrapper object.
+
+Method 2: Direct assignment
+Integer num = 100;
+Double price = 250.50;
+Character grade = 'A';
+
+This works because Java automatically converts the primitive value 
+into a wrapper object. This process is called autoboxing,
+which we will study in Lesson 5.
+
+Important
+
+Avoid using the new keyword to create wrapper objects.
+Integer a = new Integer(100); // Deprecated
+
+
+Prefer:
+Integer a = Integer.valueOf(100);
+
